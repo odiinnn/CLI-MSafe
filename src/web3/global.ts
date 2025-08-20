@@ -12,7 +12,6 @@ export let APT_COIN_INFO: CoinType;
 export let DEPLOYER: HexString;
 
 let APTOS: AptosClient;
-let NODE_URL: string;
 let FAUCET: FaucetClient;
 
 export const DEF_ACCOUNT_CONF = `.aptos/config.yaml`;
@@ -30,7 +29,6 @@ interface Config {
 
 export async function setGlobal(c: Config) {
   APTOS = new AptosClient(c.nodeURL);
-  NODE_URL = c.nodeURL;
   if (c.faucetURL) {
     FAUCET = new FaucetClient(c.nodeURL, c.faucetURL);
   }
